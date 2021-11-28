@@ -1,0 +1,188 @@
+CanvasExample5:
+#: import utils kivy.utils
+#: set s dp(150)
+<CanvasExample4>:
+    Button:
+        pos: 100, 400
+        text: "A"
+        on_press: root.on_button_a_click()
+
+<CanvasExample3>:
+    canvas:
+        Color:
+            rgb: utils.get_color_from_hex('#F05F40')
+        Line:
+            circle: (200, 200, 100) # center_x, center_y, radius
+        Line:
+            ellipse: (500, 300, 100, 200) # center_x, center_y, radius_x, radius_y
+        Line:
+            rectangle: (800, 100, 300, 200) # x, y, width, height
+
+
+<CanvasExample2>:
+    canvas:
+        Line:
+            points:(0, self.height/2,self.width,self.height/2 )
+        Line:
+            points:(self.width/2, 0,self.width/2,self.height )
+
+<CanvasExample1>:
+    canvas:
+        Rectangle:
+            pos: self.center_x-s/2, self.center_y-s/2
+            size: s, s
+        Ellipse:
+            pos: 200, 500
+            size: s, s/2
+        Line:
+            # x, y, x2, y2
+            points: (0,0,self.width/4,100, self.width/2, 0, self.width*3/4, 100, self.width, 0)
+            width: 2
+
+<ImageExample>:
+    cols:3
+    Image:
+        source: "images/cake.jpg"
+    Image:
+        source: "images/cake.jpg"
+        allow_stretch: True
+    Image:
+        source: "images/cake.jpg"
+        keep_ratio: False
+        allow_stretch: True
+
+<WidgetsExample>:
+    cols: 3
+    ToggleButton:
+        text: "OFF"
+        on_state: root.on_toggle_button_state(self)
+    Button:
+        text: "Click Here"
+        on_press: root.on_button_click()
+        disabled: not root.cont_enable
+    Label:
+        text: root.my_text
+        font_name: "fonts/Lcd.ttf"
+        font_size: "80dp"
+    Switch:
+        id: my_switch
+        on_active: root.on_switch_active(self)
+        active: True
+    Slider:
+        id: my_slider
+        disabled: not my_switch.active
+        min: 0
+        max: 100
+        value: 75
+        orientation: "vertical"
+        on_value: root.on_slider_value(self)
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            #text: root.slider_value_txt
+            text: str(int(my_slider.value))
+            font_name: "fonts/Lcd.ttf"
+            font_size: "80dp"
+        ProgressBar:
+            max: 100
+            value: int(my_slider.value)
+    TextInput:
+        id: my_text_input
+        text: "Foo"
+        multiline: False
+        on_text_validate: root.on_text_validate(self)
+    Label:
+        text: root.text_input_str
+
+<PageLayoutExample@PageLayout>:
+    MainWidget:
+    BoxLayoutExample:
+    AnchorLayoutExample:
+    GridLayoutExample:
+
+<ScrollViewExample@ScrollView>:
+    StackLayoutExample:
+        size_hint: 1, None
+        height: self.minimum_height
+
+#<StackLayoutExample>:
+#    Button:
+#        text: "A"
+#        size_hint: .2,.2
+#    Button:
+#        text: "B"
+#        size_hint: .2,.2
+#    Button:
+#        text: "C"
+#        size_hint: .2,.2
+#    Button:
+#        text: "D"
+#        size_hint: .2,.2
+#    Button:
+#        text: "E"
+#        size_hint: .2,.2
+#    Button:
+#        text: "F"
+#        size_hint: .2,.2
+
+<GridLayoutExample@GridLayout>:
+    #cols : 3
+    rows: 2
+    Button:
+        text: "A"
+        size_hint: .5,1
+    BoxLayoutExample:
+    Button:
+        text: "C"
+    Button:
+        text: "D"
+        size_hint: .5,1
+    Button:
+        text: "E"
+    Button:
+        text: "F"   
+
+<AnchorLayoutExample>:
+    anchor_x: "right"
+    Button:
+        text: "A"
+        size_hint: .1, .1
+        
+
+<BoxLayoutExample>:
+    orientation: "vertical"
+    Button:
+        text: "A"
+        size_hint: .8, .5
+    BoxLayout:
+        orientation: "horizontal"
+        Button:
+            text: "B1"
+        Button:
+            text: "B2"
+        Button:
+            text: "B3"
+        Button:
+            text: "B4"
+    Button:
+        text: "C"
+        size_hint: 1, None
+        height: "60dp"
+    Button:
+        text: "D"
+        size_hint: .5, None
+        height: "60dp"
+        # x (da esquerda pra direita), center_x (no centro da tela), right (da direita pra esquerda)
+        # y, center_y, top (mesmas coisas que os de cima, só que pro eixo y)
+        pos_hint: {"right":1}
+<MainWidget>:
+    Button:
+        text: "Hello World!"
+        size: "40dp", "40dp"
+        pos: "100dp", "200dp"
+        color: 0,1,1,1
+    Label:
+        text: "Hello World! 2 "
+        size: "40dp", "40dp"
+        pos: "200dp", "200dp"
+        color: 1,0,1,1
