@@ -1,6 +1,46 @@
-CanvasExample5:
+CanvasExample7:
 #: import utils kivy.utils
 #: set s dp(150)
+<CanvasExample7>:
+    BoxLayout:
+        size: root.size
+        RelativeLayout:
+            canvas:
+                Color: 
+                    rgb: 0,0,1
+                Rectangle:
+                    size: self.size
+        RelativeLayout:
+            canvas:
+                Color: 
+                    rgb: 1,1,1
+                Rectangle:
+                    size: self.size
+        RelativeLayout:
+            canvas:
+                Color: 
+                    rgb: 1,0,0
+                Rectangle:
+                    size: self.size
+        
+
+<CanvasExample6>:
+    BoxLayout:
+        size: root.size
+        Widget:
+            canvas:
+                Color: 
+                    rgb: 0,1,0
+                Rectangle:
+                    size: self.size
+        Widget:
+            canvas:
+                Color: 
+                    rgb: 0,0,1
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+
 <CanvasExample4>:
     Button:
         pos: 100, 400

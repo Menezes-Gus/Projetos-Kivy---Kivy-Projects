@@ -147,5 +147,11 @@ class CanvasExample5(Widget):
 
             self.ball.pos = (x, y)
 
+class CanvasExample6(Widget):
+    pass
+
+class CanvasExample7(BoxLayout):
+    pass
+
 TheLabApp().run()
 
